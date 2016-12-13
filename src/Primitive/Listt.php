@@ -68,11 +68,7 @@ class Listt implements
      */
     public function extract()
     {
-        return array_map(function ($value) {
-            return $value instanceof Common\ValueOfInterface
-                ? $value->extract()
-                : $value;
-        }, $this->value);
+        return $this->value;
     }
 
     /**

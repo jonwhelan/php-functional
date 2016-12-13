@@ -11,9 +11,14 @@ use Widmogrod\Helpful\FunctorLaws;
 use Widmogrod\Helpful\MonadLaws;
 use Widmogrod\Helpful\MonoidLaws;
 use Widmogrod\Primitive\Listt;
+use Widmogrod\Monad\Maybe\Just;
 
 class ListtTest extends \PHPUnit_Framework_TestCase
 {
+    public function test_extract_does_not_extract_inner_elements()
+    {
+        $this->assertEquals([Just::of('test')], Listt::of(Just::of('test'))->extract());
+    }
     /**
      * @dataProvider provideData
      */
